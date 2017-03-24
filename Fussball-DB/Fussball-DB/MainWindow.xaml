@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Fussball_DB"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Bundesliga" Height="350" Width="525">
     <Grid>
-        <Label Content="Te6st"/>
+        <Menu>
+            <MenuItem Header="_View">
+                <MenuItem Header="_Show Teams"></MenuItem>
+                <MenuItem Header="_Show Players"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="_View"></MenuItem>
+            <MenuItem Header="_About"></MenuItem>
+        </Menu>
     </Grid>
 </Window>
