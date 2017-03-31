@@ -10,25 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Fussball_DB
 {
     /// <summary>
-    /// Interaction logic for UltimateTeam.xaml
+    /// Interaction logic for SaveTeamDialog.xaml
     /// </summary>
-    public partial class UltimateTeam : UserControl
+    public partial class SaveTeamDialog : Window
     {
-        public UltimateTeam()
+        public SaveTeamDialog()
         {
             InitializeComponent();
-        }
-
-        private void save_Click(object sender, RoutedEventArgs e)
-        {
-            SaveTeamDialog stDialog = new SaveTeamDialog();
-            stDialog.Show();
         }
     }
 }

@@ -7,13 +7,17 @@
         mc:Ignorable="d"
         Title="Bundesliga" Height="1080" Width="1920"
         WindowState="Maximized"
-        Icon="bundesliga.png">
-    <Grid x:Name="grid">
+        Icon="bundesliga.png"
+        x:Name="win"
+        ResizeMode="NoResize">
+    <Grid>
+        <StackPanel x:Name="grid">
         <Menu>
             <MenuItem Header="_Ausgabe"/>
             <MenuItem Header="_Ultimate Team" Click="MenuItem_UltimateTeam_Click"/>
             <MenuItem Header="_Tabelle/Spiele"/>
             <MenuItem Header="_About"/>
         </Menu>
+        </StackPanel>
     </Grid>
 </Window>

@@ -5,8 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Fussball_DB"
              mc:Ignorable="d" 
-             d:DesignHeight="1080" d:DesignWidth="1920"
-             ClipToBounds="False">
+             d:DesignHeight="1080" d:DesignWidth="1920">
+    <UserControl.Resources>
+        <local:AufstellungConv x:Key="aufstellungConv"/>
+        <local:SpielfeldConv x:Key="spielfeldConv"/>
+        <!--<ObjectDataProvider x:Key="pkmn" ObjectType="{x:Type local:PKMN}"/>-->
+    </UserControl.Resources>
     <Grid>
         <Menu>
             <MenuItem Header="_Ausgabe"/>
@@ -14,24 +18,35 @@
             <MenuItem Header="_Tabelle/Spiele"/>
             <MenuItem Header="_About"/>
         </Menu>
-        <Label x:Name="label" Content="Spieler" HorizontalAlignment="Left" Margin="260,36,0,0" VerticalAlignment="Top" FontSize="36"/>
+        <Label x:Name="title1" Content="Spieler" HorizontalAlignment="Left" Margin="260,36,0,0" VerticalAlignment="Top" FontSize="36"/>
+        <Label x:Name="title2" Content="Team" HorizontalAlignment="Left" Margin="911,36,0,0" VerticalAlignment="Top" FontSize="36"/>
+        <Label x:Name="title3" Content="Spielfeld" HorizontalAlignment="Left" Margin="1489,36,0,0" VerticalAlignment="Top" FontSize="36"/>
         <ListBox x:Name="listBox1" Margin="30,108,1290,166"/>
-        <ListBox x:Name="listBox2" HorizontalAlignment="Left" Height="531" Margin="660,108,0,0" VerticalAlignment="Top" Width="600"/>
-        <ListBox x:Name="listBox3" HorizontalAlignment="Left" Height="824" Margin="1290,108,0,0" VerticalAlignment="Top" Width="600"/>
-        <TextBox x:Name="textBox1" Height="23" TextWrapping="Wrap" Text="Name" Margin="198,925,1436,132"/>
-        <TextBox x:Name="textBox2" Height="23" TextWrapping="Wrap" Text="Verein" Margin="198,953,1436,104"/>
-        <TextBox x:Name="textBox3" Height="23" TextWrapping="Wrap" Text="Nationalität" Margin="198,981,1436,76"/>
+        <ListBox x:Name="listBox2" HorizontalAlignment="Left" Height="476" Margin="660,108,0,0" VerticalAlignment="Top" Width="600"/>
+        <Image x:Name="aufstellung" HorizontalAlignment="Left" Height="824" Margin="1290,108,0,0" VerticalAlignment="Top" Width="600" Source="{Binding ElementName=comboBox, Path=SelectedIndex, Converter={StaticResource spielfeldConv}}"/>
+        <TextBox x:Name="textBox1" Height="23" TextWrapping="Wrap" Text="Name" Margin="198,925,1436,132" Visibility="Visible"/>
+        <TextBox x:Name="textBox2" Height="23" TextWrapping="Wrap" Text="Verein" Margin="198,963,1436,94"/>
+        <TextBox x:Name="textBox3" Height="23" TextWrapping="Wrap" Text="Nationalität" Margin="198,1001,1436,56"/>
         <Label x:Name="label1" Content="Suche nach Name:" HorizontalAlignment="Left" Height="23" Margin="30,925,0,0" VerticalAlignment="Top" Width="145"/>
-        <Label x:Name="label2" Content="Suche nach Verein:" HorizontalAlignment="Left" Height="23" Margin="30,953,0,0" VerticalAlignment="Top" Width="145"/>
-        <Label x:Name="label3" Content="Suche nach Nationalität:" HorizontalAlignment="Left" Height="23" Margin="30,981,0,0" VerticalAlignment="Top" Width="145"/>
-        <ComboBox x:Name="comboBox" Height="20" Margin="660,644,1130,416" SelectedIndex="0">
-            <ComboBoxItem IsEnabled="False">Choose Formation</ComboBoxItem>
+        <Label x:Name="label2" Content="Suche nach Verein:" HorizontalAlignment="Left" Height="23" Margin="30,963,0,0" VerticalAlignment="Top" Width="145"/>
+        <Label x:Name="label3" Content="Suche nach Nationalität:" HorizontalAlignment="Left" Height="23" Margin="30,1001,0,0" VerticalAlignment="Top" Width="145"/>
+        <ComboBox x:Name="comboBox" Height="23" Margin="660,589,1130,471" SelectedIndex="0">
             <ComboBoxItem>4 - 4 - 2</ComboBoxItem>
             <ComboBoxItem>4 - 3 - 3</ComboBoxItem>
             <ComboBoxItem>4 - 3 - 2 - 1</ComboBoxItem>
             <ComboBoxItem>4 - 1 - 2 - 1 - 2</ComboBoxItem>
         </ComboBox>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="263" Margin="660,669,0,0" VerticalAlignment="Top" Width="600"/>
-
+        <Image x:Name="vorschau" HorizontalAlignment="Left" Height="407" Margin="660,617,0,0" VerticalAlignment="Top" Width="600" Source="{Binding ElementName=comboBox, Path=SelectedIndex, Converter={StaticResource aufstellungConv}}"/>
+        <Button x:Name="button1" Content="Nach Name suchen" Height="23" Margin="489,925,1290,132"/>
+        <Button x:Name="button2" Content="Nach Verein suchen" Height="23" Margin="489,963,1290,94"/>
+        <Button x:Name="button3" Content="Nach Nationalität suchen" Height="23" Margin="489,1001,1290,56"/>
+        <Button x:Name="b_Aufstellung" Content="Aufstellung auswählen" Height="23" Margin="795,589,960,468"/>
+        <Label x:Name="warning" Content="Hinweis: In Ihrem Team fehlt ein Torwart!" Margin="965,589,660,468" Height="23" Foreground="#FFC9490D" FontWeight="Bold"/>
+        <Button x:Name="save" Content="SAVE" Margin="1290,937,122,56" Click="save_Click"/>
+        <Button x:Name="options" Content="" Margin="1803,937,30,56">
+            <Button.Background>
+                <ImageBrush ImageSource="options.png"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </UserControl>

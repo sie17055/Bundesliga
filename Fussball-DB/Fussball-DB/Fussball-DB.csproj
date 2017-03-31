@@ -63,6 +63,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AufstellungConv.cs" />
     <Compile Include="Daten.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -71,12 +72,16 @@
     <Compile Include="liga.cs">
       <DependentUpon>Daten.tt</DependentUpon>
     </Compile>
+    <Compile Include="SaveTeamDialog.xaml.cs">
+      <DependentUpon>SaveTeamDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="spiel.cs">
       <DependentUpon>Daten.tt</DependentUpon>
     </Compile>
     <Compile Include="spieler.cs">
       <DependentUpon>Daten.tt</DependentUpon>
     </Compile>
+    <Compile Include="SpielfeldConv.cs" />
     <Compile Include="UltimateTeam.xaml.cs">
       <DependentUpon>UltimateTeam.xaml</DependentUpon>
     </Compile>
@@ -105,6 +110,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="SaveTeamDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UltimateTeam.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -146,7 +155,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="options.png" />
     <Resource Include="bundesliga.png" />
+    <Resource Include="4-3-3_quer.jpg" />
+    <Resource Include="4-4-2diamond_quer.jpg" />
+    <Resource Include="4-4-2_quer.jpg" />
+    <Resource Include="christmas-tree_quer.jpg" />
+    <Resource Include="4-3-3.jpg" />
+    <Resource Include="4-4-2.jpg" />
+    <Resource Include="4-4-2diamond.jpg" />
+    <Resource Include="christmas-tree.jpg" />
     <Content Include="Daten.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Daten.edmx</DependentUpon>
