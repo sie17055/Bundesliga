@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Fussball_DB"
         mc:Ignorable="d"
-        Title="Bundesliga" Height="350" Width="525">
-    <Grid>
+        Title="Bundesliga" Height="1080" Width="1920"
+        WindowState="Maximized"
+        Icon="bundesliga.png">
+    <Grid x:Name="grid">
         <Menu>
-            <MenuItem Header="_View">
-                <MenuItem Header="_Show Teams"></MenuItem>
-                <MenuItem Header="_Show Players"></MenuItem>
-            </MenuItem>
-            <MenuItem Header="_View"></MenuItem>
-            <MenuItem Header="_About"></MenuItem>
+            <MenuItem Header="_Ausgabe"/>
+            <MenuItem Header="_Ultimate Team" Click="MenuItem_UltimateTeam_Click"/>
+            <MenuItem Header="_Tabelle/Spiele"/>
+            <MenuItem Header="_About"/>
         </Menu>
     </Grid>
 </Window>

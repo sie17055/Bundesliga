@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="bundesligaModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="liga">
+          <Key>
+            <PropertyRef Name="Liga_Nr" />
+          </Key>
+          <Property Name="Liga_Nr" Type="int" Nullable="false" />
+          <Property Name="Verband" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Erstaustragung" Type="date" Nullable="false" />
+          <Property Name="Meister" Type="int" />
+          <Property Name="Rekordspieler" Type="varchar" MaxLength="255" />
+          <Property Name="Spiele_Rekordspieler" Type="int" />
+        </EntityType>
+        <EntityType Name="spiel">
+          <Key>
+            <PropertyRef Name="Spiel_ID" />
+          </Key>
+          <Property Name="Spiel_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Spieltag" Type="int" />
+          <Property Name="Datum" Type="date" />
+          <Property Name="Uhrzeit" Type="time" Precision="0" />
+          <Property Name="Heim" Type="int" Nullable="false" />
+          <Property Name="Gast" Type="int" Nullable="false" />
+          <Property Name="Tore_Heim" Type="int" />
+          <Property Name="Tore_Gast" Type="int" />
+        </EntityType>
+        <EntityType Name="spieler">
+          <Key>
+            <PropertyRef Name="Spieler_ID" />
+          </Key>
+          <Property Name="Spieler_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Vereins_ID" Type="int" Nullable="false" />
+          <Property Name="Trikot_Nr" Type="int" />
+          <Property Name="Spieler_Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Land" Type="varchar" MaxLength="255" />
+          <Property Name="Spiele" Type="int" />
+          <Property Name="Tore" Type="int" />
+          <Property Name="Vorlagen" Type="int" />
+        </EntityType>
+        <EntityType Name="verein">
+          <Key>
+            <PropertyRef Name="V_ID" />
+          </Key>
+          <Property Name="V_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Liga" Type="int" />
+        </EntityType>
+        <Association Name="Liga_ibfk_1">
+          <End Role="verein" Type="Self.verein" Multiplicity="0..1" />
+          <End Role="liga" Type="Self.liga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="verein">
+              <PropertyRef Name="V_ID" />
+            </Principal>
+            <Dependent Role="liga">
+              <PropertyRef Name="Meister" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Spiel_ibfk_1">
+          <End Role="verein" Type="Self.verein" Multiplicity="1" />
+          <End Role="spiel" Type="Self.spiel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="verein">
+              <PropertyRef Name="V_ID" />
+            </Principal>
+            <Dependent Role="spiel">
+              <PropertyRef Name="Heim" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Spiel_ibfk_2">
+          <End Role="verein" Type="Self.verein" Multiplicity="1" />
+          <End Role="spiel" Type="Self.spiel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="verein">
+              <PropertyRef Name="V_ID" />
+            </Principal>
+            <Dependent Role="spiel">
+              <PropertyRef Name="Gast" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Spieler_ibfk_1">
+          <End Role="verein" Type="Self.verein" Multiplicity="1" />
+          <End Role="spieler" Type="Self.spieler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="verein">
+              <PropertyRef Name="V_ID" />
+            </Principal>
+            <Dependent Role="spieler">
+              <PropertyRef Name="Vereins_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Verein_ibfk_1">
+          <End Role="liga" Type="Self.liga" Multiplicity="0..1" />
+          <End Role="verein" Type="Self.verein" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="liga">
+              <PropertyRef Name="Liga_Nr" />
+            </Principal>
+            <Dependent Role="verein">
+              <PropertyRef Name="Liga" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="bundesligaModelStoreContainer">
+          <EntitySet Name="liga" EntityType="Self.liga" Schema="bundesliga" store:Type="Tables" />
+          <EntitySet Name="spiel" EntityType="Self.spiel" Schema="bundesliga" store:Type="Tables" />
+          <EntitySet Name="spieler" EntityType="Self.spieler" Schema="bundesliga" store:Type="Tables" />
+          <EntitySet Name="verein" EntityType="Self.verein" Schema="bundesliga" store:Type="Tables" />
+          <AssociationSet Name="Liga_ibfk_1" Association="Self.Liga_ibfk_1">
+            <End Role="verein" EntitySet="verein" />
+            <End Role="liga" EntitySet="liga" />
+          </AssociationSet>
+          <AssociationSet Name="Spiel_ibfk_1" Association="Self.Spiel_ibfk_1">
+            <End Role="verein" EntitySet="verein" />
+            <End Role="spiel" EntitySet="spiel" />
+          </AssociationSet>
+          <AssociationSet Name="Spiel_ibfk_2" Association="Self.Spiel_ibfk_2">
+            <End Role="verein" EntitySet="verein" />
+            <End Role="spiel" EntitySet="spiel" />
+          </AssociationSet>
+          <AssociationSet Name="Spieler_ibfk_1" Association="Self.Spieler_ibfk_1">
+            <End Role="verein" EntitySet="verein" />
+            <End Role="spieler" EntitySet="spieler" />
+          </AssociationSet>
+          <AssociationSet Name="Verein_ibfk_1" Association="Self.Verein_ibfk_1">
+            <End Role="liga" EntitySet="liga" />
+            <End Role="verein" EntitySet="verein" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="bundesligaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="liga">
+          <Key>
+            <PropertyRef Name="Liga_Nr" />
+          </Key>
+          <Property Name="Liga_Nr" Type="Int32" Nullable="false" />
+          <Property Name="Verband" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Erstaustragung" Type="DateTime" Nullable="false" />
+          <Property Name="Meister" Type="Int32" />
+          <Property Name="Rekordspieler" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Spiele_Rekordspieler" Type="Int32" />
+          <NavigationProperty Name="verein" Relationship="Self.Liga_ibfk_1" FromRole="liga" ToRole="verein" />
+          <NavigationProperty Name="vereins" Relationship="Self.Verein_ibfk_1" FromRole="liga" ToRole="verein" />
+        </EntityType>
+        <EntityType Name="spiel">
+          <Key>
+            <PropertyRef Name="Spiel_ID" />
+          </Key>
+          <Property Name="Spiel_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Spieltag" Type="Int32" />
+          <Property Name="Datum" Type="DateTime" />
+          <Property Name="Uhrzeit" Type="Time" />
+          <Property Name="Heim" Type="Int32" Nullable="false" />
+          <Property Name="Gast" Type="Int32" Nullable="false" />
+          <Property Name="Tore_Heim" Type="Int32" />
+          <Property Name="Tore_Gast" Type="Int32" />
+          <NavigationProperty Name="verein" Relationship="Self.Spiel_ibfk_1" FromRole="spiel" ToRole="verein" />
+          <NavigationProperty Name="verein1" Relationship="Self.Spiel_ibfk_2" FromRole="spiel" ToRole="verein" />
+        </EntityType>
+        <EntityType Name="spieler">
+          <Key>
+            <PropertyRef Name="Spieler_ID" />
+          </Key>
+          <Property Name="Spieler_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Vereins_ID" Type="Int32" Nullable="false" />
+          <Property Name="Trikot_Nr" Type="Int32" />
+          <Property Name="Spieler_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Land" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Spiele" Type="Int32" />
+          <Property Name="Tore" Type="Int32" />
+          <Property Name="Vorlagen" Type="Int32" />
+          <NavigationProperty Name="verein" Relationship="Self.Spieler_ibfk_1" FromRole="spieler" ToRole="verein" />
+        </EntityType>
+        <EntityType Name="verein">
+          <Key>
+            <PropertyRef Name="V_ID" />
+          </Key>
+          <Property Name="V_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Liga" Type="Int32" />
+          <NavigationProperty Name="ligas" Relationship="Self.Liga_ibfk_1" FromRole="verein" ToRole="liga" />
+          <NavigationProperty Name="liga1" Relationship="Self.Verein_ibfk_1" FromRole="verein" ToRole="liga" />
+          <NavigationProperty Name="spiels" Relationship="Self.Spiel_ibfk_1" FromRole="verein" ToRole="spiel" />
+          <NavigationProperty Name="spiels1" Relationship="Self.Spiel_ibfk_2" FromRole="verein" ToRole="spiel" />
+          <NavigationProperty Name="spielers" Relationship="Self.Spieler_ibfk_1" FromRole="verein" ToRole="spieler" />
+        </EntityType>
+        <Association Name="Liga_ibfk_1">
+          <End Role="verein" Type="Self.verein" Multiplicity="0..1" />
+          <End Role="liga" Type="Self.liga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="verein">
+              <PropertyRef Name="V_ID" />
+            </Principal>
+            <Dependent Role="liga">
+              <PropertyRef Name="Meister" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Verein_ibfk_1">
+          <End Role="liga" Type="Self.liga" Multiplicity="0..1" />
+          <End Role="verein" Type="Self.verein" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="liga">
+              <PropertyRef Name="Liga_Nr" />
+            </Principal>
+            <Dependent Role="verein">
+              <PropertyRef Name="Liga" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Spiel_ibfk_1">
+          <End Role="verein" Type="Self.verein" Multiplicity="1" />
+          <End Role="spiel" Type="Self.spiel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="verein">
+              <PropertyRef Name="V_ID" />
+            </Principal>
+            <Dependent Role="spiel">
+              <PropertyRef Name="Heim" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Spiel_ibfk_2">
+          <End Role="verein" Type="Self.verein" Multiplicity="1" />
+          <End Role="spiel" Type="Self.spiel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="verein">
+              <PropertyRef Name="V_ID" />
+            </Principal>
+            <Dependent Role="spiel">
+              <PropertyRef Name="Gast" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Spieler_ibfk_1">
+          <End Role="verein" Type="Self.verein" Multiplicity="1" />
+          <End Role="spieler" Type="Self.spieler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="verein">
+              <PropertyRef Name="V_ID" />
+            </Principal>
+            <Dependent Role="spieler">
+              <PropertyRef Name="Vereins_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="bundesligaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ligas" EntityType="Self.liga" />
+          <EntitySet Name="spiels" EntityType="Self.spiel" />
+          <EntitySet Name="spielers" EntityType="Self.spieler" />
+          <EntitySet Name="vereins" EntityType="Self.verein" />
+          <AssociationSet Name="Liga_ibfk_1" Association="Self.Liga_ibfk_1">
+            <End Role="verein" EntitySet="vereins" />
+            <End Role="liga" EntitySet="ligas" />
+          </AssociationSet>
+          <AssociationSet Name="Verein_ibfk_1" Association="Self.Verein_ibfk_1">
+            <End Role="liga" EntitySet="ligas" />
+            <End Role="verein" EntitySet="vereins" />
+          </AssociationSet>
+          <AssociationSet Name="Spiel_ibfk_1" Association="Self.Spiel_ibfk_1">
+            <End Role="verein" EntitySet="vereins" />
+            <End Role="spiel" EntitySet="spiels" />
+          </AssociationSet>
+          <AssociationSet Name="Spiel_ibfk_2" Association="Self.Spiel_ibfk_2">
+            <End Role="verein" EntitySet="vereins" />
+            <End Role="spiel" EntitySet="spiels" />
+          </AssociationSet>
+          <AssociationSet Name="Spieler_ibfk_1" Association="Self.Spieler_ibfk_1">
+            <End Role="verein" EntitySet="vereins" />
+            <End Role="spieler" EntitySet="spielers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="bundesligaModelStoreContainer" CdmEntityContainer="bundesligaEntities">
+          <EntitySetMapping Name="ligas">
+            <EntityTypeMapping TypeName="bundesligaModel.liga">
+              <MappingFragment StoreEntitySet="liga">
+                <ScalarProperty Name="Liga_Nr" ColumnName="Liga_Nr" />
+                <ScalarProperty Name="Verband" ColumnName="Verband" />
+                <ScalarProperty Name="Erstaustragung" ColumnName="Erstaustragung" />
+                <ScalarProperty Name="Meister" ColumnName="Meister" />
+                <ScalarProperty Name="Rekordspieler" ColumnName="Rekordspieler" />
+                <ScalarProperty Name="Spiele_Rekordspieler" ColumnName="Spiele_Rekordspieler" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="spiels">
+            <EntityTypeMapping TypeName="bundesligaModel.spiel">
+              <MappingFragment StoreEntitySet="spiel">
+                <ScalarProperty Name="Spiel_ID" ColumnName="Spiel_ID" />
+                <ScalarProperty Name="Spieltag" ColumnName="Spieltag" />
+                <ScalarProperty Name="Datum" ColumnName="Datum" />
+                <ScalarProperty Name="Uhrzeit" ColumnName="Uhrzeit" />
+                <ScalarProperty Name="Heim" ColumnName="Heim" />
+                <ScalarProperty Name="Gast" ColumnName="Gast" />
+                <ScalarProperty Name="Tore_Heim" ColumnName="Tore_Heim" />
+                <ScalarProperty Name="Tore_Gast" ColumnName="Tore_Gast" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="spielers">
+            <EntityTypeMapping TypeName="bundesligaModel.spieler">
+              <MappingFragment StoreEntitySet="spieler">
+                <ScalarProperty Name="Spieler_ID" ColumnName="Spieler_ID" />
+                <ScalarProperty Name="Vereins_ID" ColumnName="Vereins_ID" />
+                <ScalarProperty Name="Trikot_Nr" ColumnName="Trikot_Nr" />
+                <ScalarProperty Name="Spieler_Name" ColumnName="Spieler_Name" />
+                <ScalarProperty Name="Land" ColumnName="Land" />
+                <ScalarProperty Name="Spiele" ColumnName="Spiele" />
+                <ScalarProperty Name="Tore" ColumnName="Tore" />
+                <ScalarProperty Name="Vorlagen" ColumnName="Vorlagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vereins">
+            <EntityTypeMapping TypeName="bundesligaModel.verein">
+              <MappingFragment StoreEntitySet="verein">
+                <ScalarProperty Name="V_ID" ColumnName="V_ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Liga" ColumnName="Liga" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

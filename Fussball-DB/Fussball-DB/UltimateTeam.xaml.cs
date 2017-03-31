@@ -16,19 +16,13 @@ using System.Windows.Shapes;
 namespace Fussball_DB
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for UltimateTeam.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class UltimateTeam : UserControl
     {
-        public MainWindow()
+        public UltimateTeam()
         {
             InitializeComponent();
-        }
-
-        private void MenuItem_UltimateTeam_Click(object sender, RoutedEventArgs e)
-        {
-            grid.Children.Clear();
-            grid.Children.Add(new UltimateTeam());
         }
     }
 }

@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="Fussball_DB.UltimateTeam"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Fussball_DB"
+             mc:Ignorable="d" 
+             d:DesignHeight="1080" d:DesignWidth="1920"
+             ClipToBounds="False">
+    <Grid>
+        <Menu>
+            <MenuItem Header="_Ausgabe"/>
+            <MenuItem Header="_Ultimate Team"/>
+            <MenuItem Header="_Tabelle/Spiele"/>
+            <MenuItem Header="_About"/>
+        </Menu>
+        <Label x:Name="label" Content="Spieler" HorizontalAlignment="Left" Margin="260,36,0,0" VerticalAlignment="Top" FontSize="36"/>
+        <ListBox x:Name="listBox1" Margin="30,108,1290,166"/>
+        <ListBox x:Name="listBox2" HorizontalAlignment="Left" Height="531" Margin="660,108,0,0" VerticalAlignment="Top" Width="600"/>
+        <ListBox x:Name="listBox3" HorizontalAlignment="Left" Height="824" Margin="1290,108,0,0" VerticalAlignment="Top" Width="600"/>
+        <TextBox x:Name="textBox1" Height="23" TextWrapping="Wrap" Text="Name" Margin="198,925,1436,132"/>
+        <TextBox x:Name="textBox2" Height="23" TextWrapping="Wrap" Text="Verein" Margin="198,953,1436,104"/>
+        <TextBox x:Name="textBox3" Height="23" TextWrapping="Wrap" Text="Nationalität" Margin="198,981,1436,76"/>
+        <Label x:Name="label1" Content="Suche nach Name:" HorizontalAlignment="Left" Height="23" Margin="30,925,0,0" VerticalAlignment="Top" Width="145"/>
+        <Label x:Name="label2" Content="Suche nach Verein:" HorizontalAlignment="Left" Height="23" Margin="30,953,0,0" VerticalAlignment="Top" Width="145"/>
+        <Label x:Name="label3" Content="Suche nach Nationalität:" HorizontalAlignment="Left" Height="23" Margin="30,981,0,0" VerticalAlignment="Top" Width="145"/>
+        <ComboBox x:Name="comboBox" Height="20" Margin="660,644,1130,416" SelectedIndex="0">
+            <ComboBoxItem IsEnabled="False">Choose Formation</ComboBoxItem>
+            <ComboBoxItem>4 - 4 - 2</ComboBoxItem>
+            <ComboBoxItem>4 - 3 - 3</ComboBoxItem>
+            <ComboBoxItem>4 - 3 - 2 - 1</ComboBoxItem>
+            <ComboBoxItem>4 - 1 - 2 - 1 - 2</ComboBoxItem>
+        </ComboBox>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="263" Margin="660,669,0,0" VerticalAlignment="Top" Width="600"/>
+
+    </Grid>
+</UserControl>
