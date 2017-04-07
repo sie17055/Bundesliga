@@ -162,6 +162,9 @@
     <Resource Include="4-4-2.jpg" />
     <Resource Include="4-4-2diamond.jpg" />
     <Resource Include="christmas-tree.jpg" />
+    <Resource Include="4-3-3_quer.jpg" />
+    <Resource Include="4-4-2diamond_quer.jpg" />
+    <Resource Include="christmas-tree_quer.jpg" />
     <Content Include="Daten.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Daten.edmx</DependentUpon>

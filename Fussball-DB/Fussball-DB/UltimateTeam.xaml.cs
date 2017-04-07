@@ -24,7 +24,7 @@ namespace Fussball_DB
         public UltimateTeam()
         {
             InitializeComponent();
-            listBox1.ItemsSource = db.spielers.ToList();
+            listBox1.ItemsSource = db.spielers.ToList();            
         }
 
         private void save_Click(object sender, RoutedEventArgs e)
@@ -33,7 +33,7 @@ namespace Fussball_DB
             stDialog.Show();
         }
 
-        private void b_Austellung_Click(object sender, RoutedEventArgs e)
+        private void b_Aufstellung_Click(object sender, RoutedEventArgs e)
         {
             aufstellung.Source = vorschau.Source;
         }

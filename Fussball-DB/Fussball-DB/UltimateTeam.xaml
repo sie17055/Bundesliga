@@ -9,7 +9,7 @@
     <UserControl.Resources>
         <local:AufstellungConv x:Key="aufstellungConv"/>
         <local:SpielfeldConv x:Key="spielfeldConv"/>
-        <!--<ObjectDataProvider x:Key="pkmn" ObjectType="{x:Type local:PKMN}"/>-->
+        <local:VereinConv x:Key="vereinConv"/>
     </UserControl.Resources>
     <Grid>
         <Menu>
@@ -21,12 +21,13 @@
         <Label x:Name="title1" Content="Spieler" HorizontalAlignment="Left" Margin="260,36,0,0" VerticalAlignment="Top" FontSize="36"/>
         <Label x:Name="title2" Content="Team" HorizontalAlignment="Left" Margin="911,36,0,0" VerticalAlignment="Top" FontSize="36"/>
         <Label x:Name="title3" Content="Spielfeld" HorizontalAlignment="Left" Margin="1489,36,0,0" VerticalAlignment="Top" FontSize="36"/>
-        <ListBox x:Name="listBox1" Margin="30,108,1290,166">
+        <ListBox x:Name="listBox1" Margin="30,108,1290,166" Height="806">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Path=Spieler_Name}" Margin="5"/>
                         <TextBlock Text="{Binding Path=Land}" Margin="5"/>
+                        <TextBlock x:Name="textVerein" Text="{Binding Path=verein.Name}" Margin="5"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -58,7 +59,7 @@
         <Button x:Name="button1" Content="Nach Name suchen" Height="23" Margin="489,925,1290,132"/>
         <Button x:Name="button2" Content="Nach Verein suchen" Height="23" Margin="489,963,1290,94"/>
         <Button x:Name="button3" Content="Nach Nationalität suchen" Height="23" Margin="489,1001,1290,56"/>
-        <Button x:Name="b_Aufstellung" Content="Aufstellung auswählen" Height="23" Margin="795,589,960,468" Click="b_Austellung_Click"/>
+        <Button x:Name="b_Aufstellung" Content="Aufstellung auswählen" Height="23" Margin="795,589,960,468" Click="b_Aufstellung_Click"/>
         <Label x:Name="warning" Content="Hinweis: In Ihrem Team fehlt ein Torwart!" Margin="965,589,660,468" Height="23" Foreground="#FFC9490D" FontWeight="Bold"/>
         <Button x:Name="save" Content="SAVE" Margin="1290,937,122,56" Click="save_Click"/>
         <Button x:Name="options" Content="" Margin="1803,937,30,56">
