@@ -21,7 +21,16 @@
         <Label x:Name="title1" Content="Spieler" HorizontalAlignment="Left" Margin="260,36,0,0" VerticalAlignment="Top" FontSize="36"/>
         <Label x:Name="title2" Content="Team" HorizontalAlignment="Left" Margin="911,36,0,0" VerticalAlignment="Top" FontSize="36"/>
         <Label x:Name="title3" Content="Spielfeld" HorizontalAlignment="Left" Margin="1489,36,0,0" VerticalAlignment="Top" FontSize="36"/>
-        <ListBox x:Name="listBox1" Margin="30,108,1290,166"/>
+        <ListBox x:Name="listBox1" Margin="30,108,1290,166">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Path=Spieler_Name}" Margin="5"/>
+                        <TextBlock Text="{Binding Path=Land}" Margin="5"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <ListBox x:Name="listBox2" HorizontalAlignment="Left" Height="476" Margin="660,108,0,0" VerticalAlignment="Top" Width="600"/>
         <Image x:Name="aufstellung" HorizontalAlignment="Left" Height="824" Margin="1290,300,0,-44" VerticalAlignment="Top" Width="600" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>

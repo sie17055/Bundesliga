@@ -20,9 +20,11 @@ namespace Fussball_DB
     /// </summary>
     public partial class UltimateTeam : UserControl
     {
+        bundesligaEntities db = new bundesligaEntities();
         public UltimateTeam()
         {
             InitializeComponent();
+            listBox1.ItemsSource = db.spielers.ToList();
         }
 
         private void save_Click(object sender, RoutedEventArgs e)
