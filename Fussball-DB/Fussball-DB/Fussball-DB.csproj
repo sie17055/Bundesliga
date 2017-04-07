@@ -63,7 +63,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AufstellungConv.cs" />
     <Compile Include="Daten.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -157,10 +156,7 @@
   <ItemGroup>
     <Resource Include="options.png" />
     <Resource Include="bundesliga.png" />
-    <Resource Include="4-3-3_quer.jpg" />
-    <Resource Include="4-4-2diamond_quer.jpg" />
     <Resource Include="4-4-2_quer.jpg" />
-    <Resource Include="christmas-tree_quer.jpg" />
     <Resource Include="4-3-3.jpg" />
     <Resource Include="4-4-2.jpg" />
     <Resource Include="4-4-2diamond.jpg" />

@@ -30,5 +30,10 @@ namespace Fussball_DB
             SaveTeamDialog stDialog = new SaveTeamDialog();
             stDialog.Show();
         }
+
+        private void b_Austellung_Click(object sender, RoutedEventArgs e)
+        {
+            aufstellung.Source = vorschau.Source;
+        }
     }
 }

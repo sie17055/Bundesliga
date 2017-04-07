@@ -23,7 +23,16 @@
         <Label x:Name="title3" Content="Spielfeld" HorizontalAlignment="Left" Margin="1489,36,0,0" VerticalAlignment="Top" FontSize="36"/>
         <ListBox x:Name="listBox1" Margin="30,108,1290,166"/>
         <ListBox x:Name="listBox2" HorizontalAlignment="Left" Height="476" Margin="660,108,0,0" VerticalAlignment="Top" Width="600"/>
-        <Image x:Name="aufstellung" HorizontalAlignment="Left" Height="824" Margin="1290,108,0,0" VerticalAlignment="Top" Width="600" Source="{Binding ElementName=comboBox, Path=SelectedIndex, Converter={StaticResource spielfeldConv}}"/>
+        <Image x:Name="aufstellung" HorizontalAlignment="Left" Height="824" Margin="1290,300,0,-44" VerticalAlignment="Top" Width="600" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="270"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
         <TextBox x:Name="textBox1" Height="23" TextWrapping="Wrap" Text="Name" Margin="198,925,1436,132" Visibility="Visible"/>
         <TextBox x:Name="textBox2" Height="23" TextWrapping="Wrap" Text="Verein" Margin="198,963,1436,94"/>
         <TextBox x:Name="textBox3" Height="23" TextWrapping="Wrap" Text="Nationalität" Margin="198,1001,1436,56"/>
@@ -40,7 +49,7 @@
         <Button x:Name="button1" Content="Nach Name suchen" Height="23" Margin="489,925,1290,132"/>
         <Button x:Name="button2" Content="Nach Verein suchen" Height="23" Margin="489,963,1290,94"/>
         <Button x:Name="button3" Content="Nach Nationalität suchen" Height="23" Margin="489,1001,1290,56"/>
-        <Button x:Name="b_Aufstellung" Content="Aufstellung auswählen" Height="23" Margin="795,589,960,468"/>
+        <Button x:Name="b_Aufstellung" Content="Aufstellung auswählen" Height="23" Margin="795,589,960,468" Click="b_Austellung_Click"/>
         <Label x:Name="warning" Content="Hinweis: In Ihrem Team fehlt ein Torwart!" Margin="965,589,660,468" Height="23" Foreground="#FFC9490D" FontWeight="Bold"/>
         <Button x:Name="save" Content="SAVE" Margin="1290,937,122,56" Click="save_Click"/>
         <Button x:Name="options" Content="" Margin="1803,937,30,56">
