@@ -64,10 +64,16 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AufstellungConv.cs" />
+    <Compile Include="Ausgabe.xaml.cs">
+      <DependentUpon>Ausgabe.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Daten.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Daten.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ergebnis.xaml.cs">
+      <DependentUpon>Ergebnis.xaml</DependentUpon>
     </Compile>
     <Compile Include="liga.cs">
       <DependentUpon>Daten.tt</DependentUpon>
@@ -88,6 +94,14 @@
     <Compile Include="verein.cs">
       <DependentUpon>Daten.tt</DependentUpon>
     </Compile>
+    <Page Include="Ausgabe.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ergebnis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

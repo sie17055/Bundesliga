@@ -13,9 +13,9 @@
     <Grid>
         <StackPanel x:Name="grid">
         <Menu>
-            <MenuItem Header="_Ausgabe"/>
+            <MenuItem Header="_Ausgabe" Click="MenuItem_Ausgabe_Click"/>
             <MenuItem Header="_Ultimate Team" Click="MenuItem_UltimateTeam_Click"/>
-            <MenuItem Header="_Tabelle/Spiele"/>
+            <MenuItem Header="_Tabelle/Spiele" Click="MenuItem_Tabelle_Click"/>
             <MenuItem Header="_About"/>
         </Menu>
         </StackPanel>

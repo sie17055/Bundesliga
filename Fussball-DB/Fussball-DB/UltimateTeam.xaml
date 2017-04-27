@@ -9,19 +9,18 @@
     <UserControl.Resources>
         <local:AufstellungConv x:Key="aufstellungConv"/>
         <local:SpielfeldConv x:Key="spielfeldConv"/>
-        <local:VereinConv x:Key="vereinConv"/>
     </UserControl.Resources>
-    <Grid>
+    <Grid x:Name="grid">
         <Menu>
-            <MenuItem Header="_Ausgabe"/>
-            <MenuItem Header="_Ultimate Team"/>
-            <MenuItem Header="_Tabelle/Spiele"/>
+            <MenuItem Header="_Ausgabe" Click="Ausgabe_Click"/>
+            <MenuItem Header="_Ultimate Team" Click="UT_Click"/>
+            <MenuItem Header="_Tabelle/Spiele" Click="Ergebnis_Click"/>
             <MenuItem Header="_About"/>
         </Menu>
         <Label x:Name="title1" Content="Spieler" HorizontalAlignment="Left" Margin="260,36,0,0" VerticalAlignment="Top" FontSize="36"/>
         <Label x:Name="title2" Content="Team" HorizontalAlignment="Left" Margin="911,36,0,0" VerticalAlignment="Top" FontSize="36"/>
         <Label x:Name="title3" Content="Spielfeld" HorizontalAlignment="Left" Margin="1489,36,0,0" VerticalAlignment="Top" FontSize="36"/>
-        <ListBox x:Name="listBox1" Margin="30,108,1290,166" Height="806">
+        <ListBox x:Name="listBox1" Margin="30,108,1290,166" Height="806" MouseDoubleClick="spielerDoubleClick" SelectionChanged="listBox1_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -32,7 +31,17 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ListBox x:Name="listBox2" HorizontalAlignment="Left" Height="476" Margin="660,108,0,0" VerticalAlignment="Top" Width="600"/>
+        <ListBox x:Name="listBox2" HorizontalAlignment="Left" Height="476" Margin="660,108,0,0" VerticalAlignment="Top" Width="600" MouseDoubleClick="teamDoubleClick" SelectionChanged="teamSelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Path=Spieler_Name}" Margin="5"/>
+                        <TextBlock Text="{Binding Path=Land}" Margin="5"/>
+                        <TextBlock x:Name="textVerein" Text="{Binding Path=verein.Name}" Margin="5"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <Image x:Name="aufstellung" HorizontalAlignment="Left" Height="824" Margin="1290,300,0,-44" VerticalAlignment="Top" Width="600" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
@@ -56,16 +65,216 @@
             <ComboBoxItem>4 - 1 - 2 - 1 - 2</ComboBoxItem>
         </ComboBox>
         <Image x:Name="vorschau" HorizontalAlignment="Left" Height="407" Margin="660,617,0,0" VerticalAlignment="Top" Width="600" Source="{Binding ElementName=comboBox, Path=SelectedIndex, Converter={StaticResource aufstellungConv}}"/>
-        <Button x:Name="button1" Content="Nach Name suchen" Height="23" Margin="489,925,1290,132"/>
-        <Button x:Name="button2" Content="Nach Verein suchen" Height="23" Margin="489,963,1290,94"/>
-        <Button x:Name="button3" Content="Nach Nationalität suchen" Height="23" Margin="489,1001,1290,56"/>
+        <Button x:Name="button1" Content="Nach Name suchen" Height="23" Margin="489,925,1290,132" Click="button1_Click"/>
+        <Button x:Name="button2" Content="Nach Verein suchen" Height="23" Margin="489,963,1290,94" Click="button2_Click"/>
+        <Button x:Name="button3" Content="Nach Nationalität suchen" Height="23" Margin="489,1001,1290,56" Click="button3_Click"/>
         <Button x:Name="b_Aufstellung" Content="Aufstellung auswählen" Height="23" Margin="795,589,960,468" Click="b_Aufstellung_Click"/>
         <Label x:Name="warning" Content="Hinweis: In Ihrem Team fehlt ein Torwart!" Margin="965,589,660,468" Height="23" Foreground="#FFC9490D" FontWeight="Bold"/>
-        <Button x:Name="save" Content="SAVE" Margin="1290,937,122,56" Click="save_Click"/>
+        <Button x:Name="save" Content="SAVE" Margin="1290,937,122,56" Click="save_Click" FontSize="48"/>
         <Button x:Name="options" Content="" Margin="1803,937,30,56">
             <Button.Background>
                 <ImageBrush ImageSource="options.png"/>
             </Button.Background>
+        </Button>
+        <Button x:Name="cd_r" Width="50" Height="50" Margin="1618,609,252,421">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Fill="Black"/>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="cd_l" Width="50" Height="50" Margin="1514,609,356,421">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Fill="Black"/>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="lb" Width="50" Height="50" Margin="1402,609,468,421">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Fill="Black"/>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="rb" Width="50" Height="50" Margin="1726,609,144,421">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Fill="Black"/>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="lm" Width="50" Height="50" Margin="1402,475,468,555">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Fill="Black"/>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="cm_l" Width="50" Height="50" Margin="1514,475,356,555">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Fill="Black"/>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="cm_r" Width="50" Height="50" Margin="1618,475,252,555">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Fill="Black"/>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="rm" Width="50" Height="50" Margin="1726,475,144,555">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Fill="Black"/>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="st_l" Width="50" Height="50" Margin="1514,265,356,765">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Fill="Black"/>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="st_r" Width="50" Height="50" Margin="1618,265,252,765">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Fill="Black"/>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="st_m" Width="50" Height="50" Margin="1566,265,304,765">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Fill="Black"/>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="lm_2" Width="50" Height="50" Margin="1450,475,420,555">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Fill="Black"/>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="rm_2" Width="50" Height="50" Margin="1680,477,190,553">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Fill="Black"/>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="cm_m" Width="50" Height="50" Margin="1566,475,304,555">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Fill="Black"/>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="rw" Width="50" Height="50" Margin="1726,301,144,729">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Fill="Black"/>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="lw" Width="50" Height="50" Margin="1402,301,468,729">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Fill="Black"/>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="amc_r" Width="50" Height="50" Margin="1620,367,250,663">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Fill="Black"/>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="amc_l" Width="50" Height="50" Margin="1512,367,358,663">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Fill="Black"/>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="amc_m" Width="50" Height="50" Margin="1564,379,306,651">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Fill="Black"/>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="dm" Width="50" Height="50" Margin="1568,553,302,477">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Fill="Black"/>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
         </Button>
     </Grid>
 </UserControl>

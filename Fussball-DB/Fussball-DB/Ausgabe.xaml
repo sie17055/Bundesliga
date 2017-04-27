@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="Fussball_DB.Ausgabe"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Fussball_DB"
+        mc:Ignorable="d"
+        Height="768" Width="1366">
+
+    <Grid x:Name="grid">
+        <Menu>
+            <MenuItem Header="_Ausgabe" Click="Ausgabe_Click"/>
+            <MenuItem Header="_Ultimate Team" Click="UT_Click"/>
+            <MenuItem Header="_Tabelle/Spiele" Click="Ergebnis_Click"/>
+            <MenuItem Header="_About"/>
+        </Menu>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="492" Margin="78,129,0,0" VerticalAlignment="Top" Width="452"/>
+        <ListBox x:Name="listBox1" HorizontalAlignment="Left" Height="492" Margin="530,129,0,0" VerticalAlignment="Top" Width="452"/>
+        <Label x:Name="teams" Content="Teams" HorizontalAlignment="Left" Margin="213,52,0,0" VerticalAlignment="Top" Height="77" Width="322"
+               FontSize="50" FontWeight="Bold"/>
+        <Label x:Name="spieler" Content="Spieler" HorizontalAlignment="Left" Margin="665,52,0,0" VerticalAlignment="Top" Height="77" Width="322"
+               FontSize="50" FontWeight="Bold"/>
+        <TextBox x:Name="suchfeld" HorizontalAlignment="Left" Height="41" Margin="1040,102,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="262" FontSize="28"/>
+        <Label x:Name="label" Content="Suchfeld" HorizontalAlignment="Left" Margin="1106,47,0,0" VerticalAlignment="Top" Height="50" Width="164" FontSize="30" FontWeight="Bold"/>
+        <Label x:Name="label1" Content="Spielereigenschaften" HorizontalAlignment="Left" Margin="987,201,0,0" VerticalAlignment="Top" Height="59" Width="361" FontSize="35" FontWeight="Bold"/>
+        <Label x:Name="label2" Content="Name" HorizontalAlignment="Left" Margin="1132,265,0,0" VerticalAlignment="Top" Height="50" Width="89" FontSize="28" FontWeight="Bold"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="41" Margin="1040,315,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="262" FontSize="28"/>
+        <Label x:Name="label3" Content="Verein" HorizontalAlignment="Left" Margin="1132,361,0,0" VerticalAlignment="Top" FontSize="28" FontWeight="Bold"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="41" Margin="1040,408,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="262" FontSize="28"/>
+        <Label x:Name="label4" Content="Trikot-Nummer" HorizontalAlignment="Left" Margin="1061,454,0,0" VerticalAlignment="Top" FontSize="28" FontWeight="Bold"/>
+        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="41" Margin="1040,501,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="262" FontSize="28"/>
+        <Label x:Name="label5" Content="Land" HorizontalAlignment="Left" Margin="1132,547,0,0" VerticalAlignment="Top" FontSize="28" FontWeight="Bold"/>
+        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="41" Margin="1040,594,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="262" FontSize="28"/>
+        <Button x:Name="button" Content="Speichern" HorizontalAlignment="Left" Margin="1061,640,0,0" VerticalAlignment="Top" Width="215" Height="60"  FontSize="28" FontWeight="Bold" Background="LightBlue"/>
+
+    </Grid>
+</UserControl>

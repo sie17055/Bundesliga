@@ -16,31 +16,31 @@ using System.Windows.Shapes;
 namespace Fussball_DB
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Ausgabe.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Ausgabe : UserControl
     {
-        public MainWindow()
+        public Ausgabe()
         {
             InitializeComponent();
         }
 
-        private void MenuItem_UltimateTeam_Click(object sender, RoutedEventArgs e)
+        private void Ausgabe_Click(object sender, RoutedEventArgs e)
+        {
+            grid.Children.Clear();
+            grid.Children.Add(new Ausgabe());
+        }
+
+        private void UT_Click(object sender, RoutedEventArgs e)
         {
             grid.Children.Clear();
             grid.Children.Add(new UltimateTeam());
         }
 
-        private void MenuItem_Tabelle_Click(object sender, RoutedEventArgs e)
+        private void Ergebnis_Click(object sender, RoutedEventArgs e)
         {
             grid.Children.Clear();
             grid.Children.Add(new Ergebnis());
-        }
-
-        private void MenuItem_Ausgabe_Click(object sender, RoutedEventArgs e)
-        {
-            grid.Children.Clear();
-            grid.Children.Add(new Ausgabe());
         }
     }
 }
