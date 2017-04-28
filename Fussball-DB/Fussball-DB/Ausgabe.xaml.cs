@@ -42,5 +42,11 @@ namespace Fussball_DB
             grid.Children.Clear();
             grid.Children.Add(new Ergebnis());
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            About about = new About();
+            about.ShowDialog();
+        }
     }
 }

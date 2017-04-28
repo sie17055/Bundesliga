@@ -11,7 +11,7 @@
             <MenuItem Header="_Ausgabe" Click="Ausgabe_Click"/>
             <MenuItem Header="_Ultimate Team" Click="UT_Click"/>
             <MenuItem Header="_Tabelle/Spiele" Click="Ergebnis_Click"/>
-            <MenuItem Header="_About"/>
+            <MenuItem Header="_About" Click="MenuItem_Click"/>
         </Menu>
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="403" Margin="125,162,0,0" VerticalAlignment="Top" Width="454" RenderTransformOrigin="0.66,-0.96"/>
         <Label x:Name="label" Content="Tabelle" HorizontalAlignment="Left" Margin="271,75,0,0" VerticalAlignment="Top" Height="55" Width="158" FontSize="42" FontWeight="Bold"/>

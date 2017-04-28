@@ -5,14 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Fussball_DB"
         mc:Ignorable="d"
-        Title="Spielerinformationen" Height="300" Width="500">
+        Title="Spielerinformationen" Height="300" Width="500"
+        Icon="bundesliga.png">
     <Grid>
         <Label x:Name="name" Content="Name:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="23"/>
-        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Height="23" Margin="95,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="387"/>
+        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Height="23" Margin="95,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="370"/>
         <Label x:Name="verein" Content="Verein:" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Height="23"/>
-        <TextBox x:Name="vereinBox" HorizontalAlignment="Left" Height="23" Margin="95,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="387"/>
+        <TextBox x:Name="vereinBox" HorizontalAlignment="Left" Height="23" Margin="95,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="370"/>
         <Label x:Name="nationalitaet" Content="Nationalität:" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Height="23"/>
-        <TextBox x:Name="nationalitaetBox" HorizontalAlignment="Left" Height="23" Margin="95,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="387"/>
+        <TextBox x:Name="nationalitaetBox" HorizontalAlignment="Left" Height="23" Margin="95,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="370"/>
+        <Button x:Name="ok" IsDefault="True" IsCancel="True" Content="_OK" HorizontalAlignment="Left" Margin="390,225,0,0" VerticalAlignment="Top" Width="75" Click="ok_Click"/>
 
 
     </Grid>

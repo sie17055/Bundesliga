@@ -15,7 +15,7 @@
             <MenuItem Header="_Ausgabe" Click="Ausgabe_Click"/>
             <MenuItem Header="_Ultimate Team" Click="UT_Click"/>
             <MenuItem Header="_Tabelle/Spiele" Click="Ergebnis_Click"/>
-            <MenuItem Header="_About"/>
+            <MenuItem Header="_About" Click="MenuItem_Click"/>
         </Menu>
         <Label x:Name="title1" Content="Spieler" HorizontalAlignment="Left" Margin="260,36,0,0" VerticalAlignment="Top" FontSize="36"/>
         <Label x:Name="title2" Content="Team" HorizontalAlignment="Left" Margin="911,36,0,0" VerticalAlignment="Top" FontSize="36"/>
@@ -69,9 +69,9 @@
         <Button x:Name="button2" Content="Nach Verein suchen" Height="23" Margin="489,963,1290,94" Click="button2_Click"/>
         <Button x:Name="button3" Content="Nach Nationalität suchen" Height="23" Margin="489,1001,1290,56" Click="button3_Click"/>
         <Button x:Name="b_Aufstellung" Content="Aufstellung auswählen" Height="23" Margin="795,589,960,468" Click="b_Aufstellung_Click"/>
-        <Label x:Name="warning" Content="Hinweis: In Ihrem Team fehlt ein Torwart!" Margin="965,589,660,468" Height="23" Foreground="#FFC9490D" FontWeight="Bold"/>
+        <Label x:Name="warning" Content="Hinweis: 'Kein Hinweis verfügbar'" Margin="965,589,660,468" Height="23" Foreground="#FFC9490D" FontWeight="Bold"/>
         <Button x:Name="save" Content="SAVE" Margin="1290,937,122,56" Click="save_Click" FontSize="48"/>
-        <Button x:Name="options" Content="" Margin="1803,937,30,56">
+        <Button x:Name="options" Content="" Margin="1803,937,30,56" Click="options_Click">
             <Button.Background>
                 <ImageBrush ImageSource="options.png"/>
             </Button.Background>
@@ -80,7 +80,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="#FFF16824"/>
+                        <Ellipse Fill="#FFF16824" Opacity="0"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
@@ -90,7 +90,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="#FFF16824"/>
+                        <Ellipse Fill="#FFF16824" Opacity="0"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
@@ -100,7 +100,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="#FFF16824"/>
+                        <Ellipse Fill="#FFF16824" Opacity="0"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
@@ -110,7 +110,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="#FFF16824"/>
+                        <Ellipse Fill="#FFF16824" Opacity="0"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
@@ -120,7 +120,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="#FFF16824"/>
+                        <Ellipse Fill="#FFF16824" Opacity="0"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
@@ -130,7 +130,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="#FFF16824"/>
+                        <Ellipse Fill="#FFF16824" Opacity="0"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
@@ -140,7 +140,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="#FFF16824"/>
+                        <Ellipse Fill="#FFF16824" Opacity="0"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
@@ -150,7 +150,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="#FFF16824"/>
+                        <Ellipse Fill="#FFF16824" Opacity="0"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
@@ -160,7 +160,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="#FFF16824"/>
+                        <Ellipse Fill="#FFF16824" Opacity="0"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
@@ -170,7 +170,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="#FFF16824"/>
+                        <Ellipse Fill="#FFF16824" Opacity="0"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
@@ -180,7 +180,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="#FFF16824"/>
+                        <Ellipse Fill="#FFF16824" Opacity="0"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
@@ -190,7 +190,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="#FFF16824"/>
+                        <Ellipse Fill="#FFF16824" Opacity="0"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
@@ -200,7 +200,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="#FFF16824"/>
+                        <Ellipse Fill="#FFF16824" Opacity="0"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
@@ -210,7 +210,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="#FFF16824"/>
+                        <Ellipse Fill="#FFF16824" Opacity="0"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
@@ -220,7 +220,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="#FFF16824"/>
+                        <Ellipse Fill="#FFF16824" Opacity="0"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
@@ -230,7 +230,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="#FFF16824"/>
+                        <Ellipse Fill="#FFF16824" Opacity="0"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
@@ -240,7 +240,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="#FFF16824"/>
+                        <Ellipse Fill="#FFF16824" Opacity="0"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
@@ -250,7 +250,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="#FFF16824"/>
+                        <Ellipse Fill="#FFF16824" Opacity="0"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
@@ -260,7 +260,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="#FFF16824"/>
+                        <Ellipse Fill="#FFF16824" Opacity="0"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
@@ -270,7 +270,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="#FFF16824"/>
+                        <Ellipse Fill="#FFF16824" Opacity="0"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>

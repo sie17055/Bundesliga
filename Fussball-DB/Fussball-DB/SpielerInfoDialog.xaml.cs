@@ -24,9 +24,17 @@ namespace Fussball_DB
         {
             InitializeComponent();
             S = s;
-            nameBox.Text = S.Spieler_Name;
-            vereinBox.Text = S.verein.Name;
-            nationalitaetBox.Text = S.Land;
+            try
+            {
+                nameBox.Text = S.Spieler_Name;
+                vereinBox.Text = S.verein.Name;
+                nationalitaetBox.Text = S.Land;
+            } catch (NullReferenceException e)
+            {
+                nameBox.Text = "Kein Spieler ausgewählt";
+                vereinBox.Text = "Kein Spieler ausgewählt";
+                nationalitaetBox.Text = "Kein Spieler ausgewählt";
+            }
         }
 
         public spieler S
@@ -40,6 +48,11 @@ namespace Fussball_DB
             {
                 s = value;
             }
+        }
+
+        private void ok_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
         }
     }
 }

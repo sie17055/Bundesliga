@@ -1,0 +1,15 @@
+﻿<Window x:Class="Fussball_DB.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Fussball_DB"
+        mc:Ignorable="d"
+        Title="About" Height="300" Width="300"
+        Icon="bundesliga.png">
+    <Grid>
+        <Button x:Name="OK" IsDefault="True" IsCancel="True" Content="_OK" Margin="212,223,10,10" Click="OK_Click"/>
+        <Label x:Name="label1" Content="Made by Peter Szabo and Alexander Siess" HorizontalAlignment="Left" Margin="42,114,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label2" Content="HTL Spengergasse 3CHIF 2016/2017" HorizontalAlignment="Left" Margin="57,140,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

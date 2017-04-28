@@ -63,6 +63,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AufstellungConv.cs" />
     <Compile Include="Ausgabe.xaml.cs">
       <DependentUpon>Ausgabe.xaml</DependentUpon>
@@ -77,6 +80,9 @@
     </Compile>
     <Compile Include="liga.cs">
       <DependentUpon>Daten.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OptionsDialog.xaml.cs">
+      <DependentUpon>OptionsDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="SpielerInfoDialog.xaml.cs">
       <DependentUpon>SpielerInfoDialog.xaml</DependentUpon>
@@ -97,6 +103,10 @@
     <Compile Include="verein.cs">
       <DependentUpon>Daten.tt</DependentUpon>
     </Compile>
+    <Page Include="About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Ausgabe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -127,6 +137,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="OptionsDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="SpielerInfoDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

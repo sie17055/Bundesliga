@@ -16,7 +16,7 @@
             <MenuItem Header="_Ausgabe" Click="MenuItem_Ausgabe_Click"/>
             <MenuItem Header="_Ultimate Team" Click="MenuItem_UltimateTeam_Click"/>
             <MenuItem Header="_Tabelle/Spiele" Click="MenuItem_Tabelle_Click"/>
-            <MenuItem Header="_About"/>
+            <MenuItem Header="_About" Click="MenuItem_Click"/>
         </Menu>
         </StackPanel>
     </Grid>

@@ -47,6 +47,9 @@ namespace Fussball_DB
         spieler sSTR = null;
         spieler sRW = null;
         SpielerInfoDialog siDialog = null;
+        verein myVerein = new verein();
+        string myVereinTrainer = "Max Mustermann";
+        string myVereinStadt = "Musterstadt";
         public List<spieler> Spieler
         {
             get
@@ -78,12 +81,15 @@ namespace Fussball_DB
             InitializeComponent();
             Spieler = new List<spieler>();
             listBox1.ItemsSource = db.spielers.ToList();
+            myVerein.Liga = 1;
+            myVerein.Name = "1.FC Muster";
+            myVerein.V_ID = db.vereins.Count() + 1;
         }
 
         private void save_Click(object sender, RoutedEventArgs e)
         {
-            SaveTeamDialog stDialog = new SaveTeamDialog();
-            stDialog.Show();
+            SaveTeamDialog stDialog = new SaveTeamDialog(myVerein, myVereinStadt, myVereinTrainer, (List<spieler>)listBox2.ItemsSource);
+            stDialog.ShowDialog();
         }
 
         private void b_Aufstellung_Click(object sender, RoutedEventArgs e)
@@ -326,127 +332,127 @@ namespace Fussball_DB
         private void cm_l_Click(object sender, RoutedEventArgs e)
         {
             siDialog = new SpielerInfoDialog(sCML);
-            siDialog.Show();
+            siDialog.ShowDialog();
         }
 
         private void tw_Click(object sender, RoutedEventArgs e)
         {
             siDialog = new SpielerInfoDialog(sTW);
-            siDialog.Show();
+            siDialog.ShowDialog();
         }
 
         private void lb_Click(object sender, RoutedEventArgs e)
         {
             siDialog = new SpielerInfoDialog(sLB);
-            siDialog.Show();
+            siDialog.ShowDialog();
         }
 
         private void cd_l_Click(object sender, RoutedEventArgs e)
         {
             siDialog = new SpielerInfoDialog(sCDL);
-            siDialog.Show();
+            siDialog.ShowDialog();
         }
 
         private void cd_r_Click(object sender, RoutedEventArgs e)
         {
             siDialog = new SpielerInfoDialog(sCDR);
-            siDialog.Show();
+            siDialog.ShowDialog();
         }
 
         private void rb_Click(object sender, RoutedEventArgs e)
         {
             siDialog = new SpielerInfoDialog(sRB);
-            siDialog.Show();
+            siDialog.ShowDialog();
         }
 
         private void dm_Click(object sender, RoutedEventArgs e)
         {
             siDialog = new SpielerInfoDialog(sDM);
-            siDialog.Show();
+            siDialog.ShowDialog();
         }
 
         private void lm_Click(object sender, RoutedEventArgs e)
         {
             siDialog = new SpielerInfoDialog(sLM);
-            siDialog.Show();
+            siDialog.ShowDialog();
         }
 
         private void lm_2_Click(object sender, RoutedEventArgs e)
         {
             siDialog = new SpielerInfoDialog(sLM2);
-            siDialog.Show();
+            siDialog.ShowDialog();
         }
 
         private void cm_m_Click(object sender, RoutedEventArgs e)
         {
             siDialog = new SpielerInfoDialog(sCMM);
-            siDialog.Show();
+            siDialog.ShowDialog();
         }
 
         private void cm_r_Click(object sender, RoutedEventArgs e)
         {
             siDialog = new SpielerInfoDialog(sCMR);
-            siDialog.Show();
+            siDialog.ShowDialog();
         }
 
         private void rm_2_Click(object sender, RoutedEventArgs e)
         {
             siDialog = new SpielerInfoDialog(sRM2);
-            siDialog.Show();
+            siDialog.ShowDialog();
         }
 
         private void rm_Click(object sender, RoutedEventArgs e)
         {
             siDialog = new SpielerInfoDialog(sRM);
-            siDialog.Show();
+            siDialog.ShowDialog();
         }
 
         private void amc_l_Click(object sender, RoutedEventArgs e)
         {
             siDialog = new SpielerInfoDialog(sAMCL);
-            siDialog.Show();
+            siDialog.ShowDialog();
         }
 
         private void amc_m_Click(object sender, RoutedEventArgs e)
         {
             siDialog = new SpielerInfoDialog(sAMCM);
-            siDialog.Show();
+            siDialog.ShowDialog();
         }
 
         private void amc_r_Click(object sender, RoutedEventArgs e)
         {
             siDialog = new SpielerInfoDialog(sAMCR);
-            siDialog.Show();
+            siDialog.ShowDialog();
         }
 
         private void lw_Click(object sender, RoutedEventArgs e)
         {
             siDialog = new SpielerInfoDialog(sLW);
-            siDialog.Show();
+            siDialog.ShowDialog();
         }
 
         private void st_l_Click(object sender, RoutedEventArgs e)
         {
             siDialog = new SpielerInfoDialog(sSTL);
-            siDialog.Show();
+            siDialog.ShowDialog();
         }
 
         private void st_m_Click(object sender, RoutedEventArgs e)
         {
             siDialog = new SpielerInfoDialog(sSTM);
-            siDialog.Show();
+            siDialog.ShowDialog();
         }
 
         private void st_r_Click(object sender, RoutedEventArgs e)
         {
             siDialog = new SpielerInfoDialog(sSTR);
-            siDialog.Show();
+            siDialog.ShowDialog();
         }
 
         private void rw_Click(object sender, RoutedEventArgs e)
         {
             siDialog = new SpielerInfoDialog(sRW);
-            siDialog.Show();
+            siDialog.ShowDialog();
         }
 
         private void ListBox_PreviewMouseLBD(object sender, MouseButtonEventArgs e)
@@ -647,6 +653,21 @@ namespace Fussball_DB
             IDataObject id = e.Data;
             int data = (int)(id.GetData(typeof(int)));
             sRW = getSpieler(db, data);
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            About about = new About();
+            about.ShowDialog();
+        }
+
+        private void options_Click(object sender, RoutedEventArgs e)
+        {
+            OptionsDialog optionsD = new OptionsDialog(myVerein, myVereinStadt, myVereinTrainer);
+            optionsD.ShowDialog();
+            myVerein = optionsD.MyVerein;
+            myVereinStadt = optionsD.MyVereinStadt;
+            myVereinTrainer = optionsD.MyVereinTrainer;
         }
     }
 }

@@ -17,13 +17,11 @@ namespace Fussball_DB
     /// <summary>
     /// Interaction logic for SaveTeamDialog.xaml
     /// </summary>
-    public partial class SaveTeamDialog : Window
+    public partial class OptionsDialog : Window
     {
         verein myVerein;
         string myVereinStadt;
         string myVereinTrainer;
-        List<spieler> teamSpieler;
-        bundesligaEntities db = new bundesligaEntities();
 
         public verein MyVerein
         {
@@ -64,35 +62,19 @@ namespace Fussball_DB
             }
         }
 
-        public List<spieler> TeamSpieler
-        {
-            get
-            {
-                return teamSpieler;
-            }
-
-            set
-            {
-                teamSpieler = value;
-            }
-        }
-
-        public SaveTeamDialog(verein myVerein, string myVereinStadt, string myVereinTrainer, List<spieler> teamSpieler)
+        public OptionsDialog(verein myVerein, string myVereinStadt, string myVereinTrainer)
         {
             InitializeComponent();
             MyVerein = myVerein;
             MyVereinStadt = myVereinStadt;
             MyVereinTrainer = myVereinTrainer;
-            vereinsnameBox.Text = MyVerein.Name;
-            trainerBox.Text = MyVereinTrainer;
-            stadtBox.Text = MyVereinStadt;
-            TeamSpieler = teamSpieler;
         }
 
         private void b_OK_Click(object sender, RoutedEventArgs e)
         {
-            MyVerein.spielers = teamSpieler;
-            db.vereins.Add(MyVerein);
+            MyVerein.Name = vereinsnameBox.Text;
+            MyVereinTrainer = trainerBox.Text;
+            MyVereinStadt = stadtBox.Text;
             DialogResult = true;
         }
 
