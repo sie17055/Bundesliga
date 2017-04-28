@@ -70,6 +70,7 @@
     <Compile Include="Ausgabe.xaml.cs">
       <DependentUpon>Ausgabe.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Conv.cs" />
     <Compile Include="Daten.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -190,6 +191,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="panda.png" />
     <Resource Include="options.png" />
     <Resource Include="bundesliga.png" />
     <Resource Include="4-4-2_quer.jpg" />
@@ -200,6 +202,10 @@
     <Resource Include="4-3-3_quer.jpg" />
     <Resource Include="4-4-2diamond_quer.jpg" />
     <Resource Include="christmas-tree_quer.jpg" />
+    <Resource Include="bundesligaHome.png" />
+    <Resource Include="1.PNG" />
+    <Resource Include="2.PNG" />
+    <Resource Include="3.PNG" />
     <Content Include="Daten.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Daten.edmx</DependentUpon>

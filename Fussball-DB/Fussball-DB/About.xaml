@@ -6,10 +6,12 @@
         xmlns:local="clr-namespace:Fussball_DB"
         mc:Ignorable="d"
         Title="About" Height="300" Width="300"
-        Icon="bundesliga.png">
+        Icon="bundesliga.png"
+        ResizeMode="NoResize">
     <Grid>
+        <Image x:Name="image" Source="panda.png" Height="150" Width="150" Margin="0,6,0,113" HorizontalAlignment="Center"/>
         <Button x:Name="OK" IsDefault="True" IsCancel="True" Content="_OK" Margin="212,223,10,10" Click="OK_Click"/>
-        <Label x:Name="label1" Content="Made by Peter Szabo and Alexander Siess" HorizontalAlignment="Left" Margin="42,114,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label2" Content="HTL Spengergasse 3CHIF 2016/2017" HorizontalAlignment="Left" Margin="57,140,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Made by Peter Szabo and Alexander Siess" Margin="0,164,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <Label x:Name="label2" Content="HTL Spengergasse 3CHIF 2016/2017" HorizontalAlignment="Center" Margin="0,190,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

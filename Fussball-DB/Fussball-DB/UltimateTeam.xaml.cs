@@ -81,7 +81,7 @@ namespace Fussball_DB
             InitializeComponent();
             Spieler = new List<spieler>();
             listBox1.ItemsSource = db.spielers.ToList();
-            myVerein.Liga = 1;
+            myVerein.Liga = 4;
             myVerein.Name = "1.FC Muster";
             myVerein.V_ID = db.vereins.Count() + 1;
         }
@@ -256,8 +256,10 @@ namespace Fussball_DB
             Spieler.Add(Selected);
             if (listBox2.Items.Count < 11 && !listBox2.Items.Contains(Selected))
                 {
+                warning.Content = "Sie können bis zu 11 Spieler haben!";
                     listBox2.Items.Add(Selected);
                 }
+            warning.Content = "";
         }
 
         private void listBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
