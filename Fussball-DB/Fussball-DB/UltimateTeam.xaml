@@ -31,7 +31,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ListBox x:Name="listBox2" HorizontalAlignment="Left" Height="476" Margin="660,108,0,0" VerticalAlignment="Top" Width="600" MouseDoubleClick="teamDoubleClick" SelectionChanged="teamSelectionChanged">
+        <ListBox x:Name="listBox2" HorizontalAlignment="Left" Height="476" Margin="660,108,0,0" VerticalAlignment="Top" Width="600" MouseDoubleClick="teamDoubleClick" SelectionChanged="teamSelectionChanged" PreviewMouseLeftButtonDown="ListBox_PreviewMouseLBD" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -76,201 +76,211 @@
                 <ImageBrush ImageSource="options.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="cd_r" Width="50" Height="50" Margin="1618,609,252,421">
+        <Button x:Name="cd_r" Width="50" Height="50" Margin="1618,609,252,421" IsEnabled="False" Click="cd_r_Click" Drop="cd_r_Drop" AllowDrop="True" Visibility="Hidden">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="Black"/>
+                        <Ellipse Fill="#FFF16824"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="cd_l" Width="50" Height="50" Margin="1514,609,356,421">
+        <Button x:Name="cd_l" Width="50" Height="50" Margin="1514,609,356,421" IsEnabled="False" Click="cd_l_Click" Drop="cd_l_Drop" AllowDrop="True" Visibility="Hidden">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="Black"/>
+                        <Ellipse Fill="#FFF16824"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="lb" Width="50" Height="50" Margin="1402,609,468,421">
+        <Button x:Name="lb" Width="50" Height="50" Margin="1402,609,468,421" IsEnabled="False" Click="lb_Click" Drop="lb_Drop" AllowDrop="True" Visibility="Hidden">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="Black"/>
+                        <Ellipse Fill="#FFF16824"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="rb" Width="50" Height="50" Margin="1726,609,144,421">
+        <Button x:Name="rb" Width="50" Height="50" Margin="1726,609,144,421" IsEnabled="False" Click="rb_Click" Drop="rb_Drop" AllowDrop="True" Visibility="Hidden">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="Black"/>
+                        <Ellipse Fill="#FFF16824"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="lm" Width="50" Height="50" Margin="1402,475,468,555">
+        <Button x:Name="lm" Width="50" Height="50" Margin="1402,475,468,555" IsEnabled="False" Click="lm_Click" Drop="lm_Drop" AllowDrop="True" Visibility="Hidden">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="Black"/>
+                        <Ellipse Fill="#FFF16824"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="cm_l" Width="50" Height="50" Margin="1514,475,356,555">
+        <Button x:Name="cm_l" Width="50" Height="50" Margin="1514,475,356,555" Click="cm_l_Click" IsEnabled="False" Drop="cm_l_Drop" AllowDrop="True" Visibility="Hidden">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="Black"/>
+                        <Ellipse Fill="#FFF16824"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="cm_r" Width="50" Height="50" Margin="1618,475,252,555">
+        <Button x:Name="cm_r" Width="50" Height="50" Margin="1618,475,252,555" IsEnabled="False" Click="cm_r_Click" Drop="cm_r_Drop" AllowDrop="True" Visibility="Hidden">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="Black"/>
+                        <Ellipse Fill="#FFF16824"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="rm" Width="50" Height="50" Margin="1726,475,144,555">
+        <Button x:Name="rm" Width="50" Height="50" Margin="1726,475,144,555" IsEnabled="False" Click="rm_Click" Drop="rm_Drop" AllowDrop="True" Visibility="Hidden">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="Black"/>
+                        <Ellipse Fill="#FFF16824"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="st_l" Width="50" Height="50" Margin="1514,265,356,765">
+        <Button x:Name="st_l" Width="50" Height="50" Margin="1514,265,356,765" IsEnabled="False" Click="st_l_Click" Drop="st_l_Drop" AllowDrop="True" Visibility="Hidden">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="Black"/>
+                        <Ellipse Fill="#FFF16824"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="st_r" Width="50" Height="50" Margin="1618,265,252,765">
+        <Button x:Name="st_r" Width="50" Height="50" Margin="1618,265,252,765" IsEnabled="False" Click="st_r_Click" Drop="st_r_Drop" AllowDrop="True" Visibility="Hidden">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="Black"/>
+                        <Ellipse Fill="#FFF16824"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="st_m" Width="50" Height="50" Margin="1566,265,304,765">
+        <Button x:Name="st_m" Width="50" Height="50" Margin="1566,265,304,765" IsEnabled="False" Click="st_m_Click" Drop="st_m_Drop" AllowDrop="True" Visibility="Hidden">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="Black"/>
+                        <Ellipse Fill="#FFF16824"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="lm_2" Width="50" Height="50" Margin="1450,475,420,555">
+        <Button x:Name="lm_2" Width="50" Height="50" Margin="1450,475,420,555" IsEnabled="False" Click="lm_2_Click" Drop="lm_2_Drop" AllowDrop="True" Visibility="Hidden">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="Black"/>
+                        <Ellipse Fill="#FFF16824"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="rm_2" Width="50" Height="50" Margin="1680,477,190,553">
+        <Button x:Name="rm_2" Width="50" Height="50" Margin="1680,477,190,553" IsEnabled="False" Click="rm_2_Click" Drop="rm_2_Drop" AllowDrop="True" Visibility="Hidden">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="Black"/>
+                        <Ellipse Fill="#FFF16824"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="cm_m" Width="50" Height="50" Margin="1566,475,304,555">
+        <Button x:Name="cm_m" Width="50" Height="50" Margin="1566,475,304,555" IsEnabled="False" Click="cm_m_Click" Drop="cm_m_Drop" AllowDrop="True" Visibility="Hidden">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="Black"/>
+                        <Ellipse Fill="#FFF16824"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="rw" Width="50" Height="50" Margin="1726,301,144,729">
+        <Button x:Name="rw" Width="50" Height="50" Margin="1726,301,144,729" IsEnabled="False" Click="rw_Click" Drop="rw_Drop" AllowDrop="True" Visibility="Hidden">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="Black"/>
+                        <Ellipse Fill="#FFF16824"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="lw" Width="50" Height="50" Margin="1402,301,468,729">
+        <Button x:Name="lw" Width="50" Height="50" Margin="1402,301,468,729" IsEnabled="False" Click="lw_Click" Drop="lw_Drop" AllowDrop="True" Visibility="Hidden">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="Black"/>
+                        <Ellipse Fill="#FFF16824"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="amc_r" Width="50" Height="50" Margin="1620,367,250,663">
+        <Button x:Name="amc_r" Width="50" Height="50" Margin="1620,367,250,663" IsEnabled="False" Click="amc_r_Click" Drop="amc_r_Drop" AllowDrop="True" Visibility="Hidden">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="Black"/>
+                        <Ellipse Fill="#FFF16824"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="amc_l" Width="50" Height="50" Margin="1512,367,358,663">
+        <Button x:Name="amc_l" Width="50" Height="50" Margin="1512,367,358,663" IsEnabled="False" Click="amc_l_Click" Drop="amc_l_Drop" AllowDrop="True" Visibility="Hidden">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="Black"/>
+                        <Ellipse Fill="#FFF16824"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="amc_m" Width="50" Height="50" Margin="1564,379,306,651">
+        <Button x:Name="amc_m" Width="50" Height="50" Margin="1564,379,306,651" IsEnabled="False" Click="amc_m_Click" Drop="amc_m_Drop" AllowDrop="True" Visibility="Hidden">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="Black"/>
+                        <Ellipse Fill="#FFF16824"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="dm" Width="50" Height="50" Margin="1568,553,302,477">
+        <Button x:Name="dm" Width="50" Height="50" Margin="1568,553,302,477" IsEnabled="False" Click="dm_Click" Drop="dm_Drop" AllowDrop="True" Visibility="Hidden">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Fill="Black"/>
+                        <Ellipse Fill="#FFF16824"/>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="tw" Width="50" Height="50" Margin="1566,713,304,317" IsEnabled="False" Click="tw_Click" Drop="tw_Drop" AllowDrop="True" Visibility="Hidden">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Fill="#FFF16824"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
