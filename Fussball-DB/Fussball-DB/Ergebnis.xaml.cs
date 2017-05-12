@@ -71,6 +71,25 @@ namespace Fussball_DB
 
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            string liga = System.Convert.ToString(comboBox.SelectedItem);
+            Console.WriteLine("***********************************"+liga.Substring(9, 1));
+            listBox1.ItemsSource = from a in db.vereins.ToList()
+                                   from b in db.spiels.ToList()
+                                   from c in db.vereins.ToList()
+                                   orderby b.Spieltag
+                                   where a.Liga == System.Convert.ToInt32(liga.Substring(9, 1)) && a.V_ID == b.Heim && b.Gast == c.V_ID
+                                   select new
+                                   {
+                                       st=b.Spieltag,
+                                       heim = a.Name,
+                                       gast = c.Name,
+                                       th = b.Tore_Heim,
+                                       tg=b.Tore_Gast
+
+            
+                                   };
+
+
 
         }
     }

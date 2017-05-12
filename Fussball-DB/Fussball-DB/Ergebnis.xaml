@@ -17,49 +17,48 @@
             <MenuItem Header="_About" Click="MenuItem_Click"/>
         </Menu>
         <Grid>
-            <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="403" Margin="125,162,0,0" VerticalAlignment="Top" Width="454" RenderTransformOrigin="0.66,-0.96">
-            <Canvas Height="403" Width="454" >
+            <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="585" Margin="125,162,0,0" VerticalAlignment="Top" Width="528" RenderTransformOrigin="0.66,-0.96">
+                <Canvas Height="575" Width="498" >
 
 
-                <Image Source="{Binding ElementName=comboBox, Path=SelectedIndex, Converter={StaticResource conv}}"/>
-            </Canvas>
+                    <Image Source="{Binding ElementName=comboBox, Path=SelectedIndex, Converter={StaticResource conv}}"/>
+                </Canvas>
+            </ListBox>
+        </Grid>
+        <Label x:Name="label" Content="Tabelle" HorizontalAlignment="Left" Margin="321,80,0,0" VerticalAlignment="Top" Height="55" Width="158" FontSize="42" FontWeight="Bold"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="780,632,0,0" VerticalAlignment="Top" Width="231" Height="43" SelectionChanged="comboBox_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding Path=liga}"/>
+                        <Label Content="-"/>
+                        <Label Content="{Binding Path=verband}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Label x:Name="label1" Content="Liga" HorizontalAlignment="Left" Margin="854,570,0,0" VerticalAlignment="Top" Height="57" Width="90" FontSize="33" FontWeight="Bold" RenderTransformOrigin="0.911,0.561"/>
+
+        <ListBox x:Name="listBox1" HorizontalAlignment="Left" Height="403" Margin="674,162,0,0" VerticalAlignment="Top" Width="454">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding Path=st}"/>
+                        <Label Content="-"/>
+                        <Label Content="{Binding Path=heim}"/>
+                        <Label Content=" "/>
+                        <Label Content="{Binding Path=th}"/>
+                        <Label Content=":"/>
+                        <Label Content="{Binding Path=tg}"/>
+                        <Label Content=" "/>
+                        <Label Content="{Binding Path=gast}"/>
+
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
-    </Grid>
-    <Label x:Name="label" Content="Tabelle" HorizontalAlignment="Left" Margin="271,75,0,0" VerticalAlignment="Top" Height="55" Width="158" FontSize="42" FontWeight="Bold"/>
-    <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="532,646,0,0" VerticalAlignment="Top" Width="231" Height="43" SelectionChanged="comboBox_SelectionChanged">
-        <ComboBox.ItemTemplate>
-            <DataTemplate>
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="{Binding Path=liga}"/>
-                    <Label Content="-"/>
-                    <Label Content="{Binding Path=verband}"/>
-                </StackPanel>
-            </DataTemplate>
-        </ComboBox.ItemTemplate>
-    </ComboBox>
 
-    <Label x:Name="label1" Content="Liga" HorizontalAlignment="Left" Margin="609,570,0,0" VerticalAlignment="Top" Height="57" Width="90" FontSize="33" FontWeight="Bold" RenderTransformOrigin="0.911,0.561"/>
-
-    <ListBox x:Name="listBox1" HorizontalAlignment="Left" Height="403" Margin="674,162,0,0" VerticalAlignment="Top" Width="454">
-        <ListBox.ItemTemplate>
-            <DataTemplate>
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="{Binding Path=spieltag}"/>
-                    <Label Content="-"/>
-                    <Label Content="{Binding Path=datum}"/>
-                    <Label Content=" "/>
-                    <Label Content="{Binding Path=heim}"/>
-                    <Label Content=":"/>
-                    <Label Content="{Binding Path=gast}"/>
-                    <Label Content=" "/>
-                    <Label Content="{Binding Path=heimt}"/>
-                    <Label Content=":"/>
-                    <Label Content="{Binding Path=gastt}"/>
-                </StackPanel>
-            </DataTemplate>
-        </ListBox.ItemTemplate>
-    </ListBox>
-
-    <Label x:Name="label2" Content="Liga" HorizontalAlignment="Left" Margin="854,80,0,0" VerticalAlignment="Top" Height="82" Width="131" FontSize="42" FontWeight="Bold"/>
+        <Label x:Name="label2" Content="Spiele" HorizontalAlignment="Left" Margin="840,75,0,0" VerticalAlignment="Top" Height="82" Width="131" FontSize="42" FontWeight="Bold"/>
     </Grid>
 </UserControl>

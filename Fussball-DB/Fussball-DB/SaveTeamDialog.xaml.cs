@@ -91,8 +91,9 @@ namespace Fussball_DB
 
         private void b_OK_Click(object sender, RoutedEventArgs e)
         {
-            MyVerein.spielers = teamSpieler;
+            MyVerein.spielers = TeamSpieler;
             db.vereins.Add(MyVerein);
+            db.SaveChanges();
             DialogResult = true;
         }
 

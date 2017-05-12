@@ -36,9 +36,10 @@ namespace Fussball_DB
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string verein = System.Convert.ToString(listBox.SelectedItem);
+            //Console.WriteLine("***********************************" + verein.Substring(9, verein.Length - 11));
             listBox1.ItemsSource = (from b in db.spielers.ToList()
                        from c in db.vereins.ToList()
-                       where verein != c.Name /*&& c.V_ID == b.Vereins_ID*/
+                       where verein.Substring(9, verein.Length - 11) == c.Name && c.V_ID == b.Vereins_ID
                        select new
                        {
                            Spielername = b.Spieler_Name
@@ -58,31 +59,38 @@ namespace Fussball_DB
         private void listBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string spieler = System.Convert.ToString(listBox1.SelectedItem);
-            /*textBox.Text = from c in db.spielers
-                      where c.Spieler_Name == spieler
-                      select new
-                      {
-                          name = c.Spieler_Name
-                      };
-            textBox1 = from d in db.spielers
-                       from e in db.vereins
-                       where d.Spieler_Name == spieler && d.Vereins_ID == e.V_ID
-                       select new
-                       {
-                           verein = e.Name
-                       };
-            textBox2 = from f in db.spielers
-                       where f.Spieler_Name == spieler
-                       select new
-                       {
-                           nummer = f.Trikot_Nr
-                       };
-            textBox3 = from g in db.spielers
-                       where g.Spieler_Name == spieler
-                       select new
-                       {
-                           land = g.Land
-                       };*/
+            //Console.WriteLine("-------------------------------------" + spieler.Substring(16, spieler.Length - 18));
+            var x1 = from c in db.spielers
+                      where c.Spieler_Name == spieler.Substring(16, spieler.Length - 18)
+                            select c;
+            foreach (var item in x1)
+            {
+                textBox.Text = item.Spieler_Name;
+
+            }
+            var x2 = from d in db.spielers
+                       from z in db.vereins
+                       where d.Spieler_Name == spieler.Substring(16, spieler.Length - 18) && d.Vereins_ID == z.V_ID
+                       select d;
+            foreach (var item in x2)
+            {
+                //Console.WriteLine(item.verein.Name);
+                textBox1.Text = item.verein.Name;
+            }
+            var x3 = from f in db.spielers
+                       where f.Spieler_Name == spieler.Substring(16, spieler.Length - 18)
+                     select f;
+            foreach (var item in x3)
+            {
+                textBox2.Text = (item.Trikot_Nr).ToString();
+            }
+            var x4 = from g in db.spielers
+                       where g.Spieler_Name == spieler.Substring(16, spieler.Length - 18)
+                     select g;
+            foreach (var item in x4)
+            {
+                textBox3.Text = item.Land;
+            }
         }
 
 

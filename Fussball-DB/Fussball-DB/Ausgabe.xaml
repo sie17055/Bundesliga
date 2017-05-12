@@ -14,7 +14,7 @@
             <MenuItem Header="_Tabelle/Spiele" Click="Ergebnis_Click"/>
             <MenuItem Header="_About" Click="MenuItem_Click"/>
         </Menu>
-        <Grid>
+        <Grid Margin="29,10,-29,-10">
             <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="492" Margin="78,129,0,0" VerticalAlignment="Top" Width="452" SelectionChanged="listBox_SelectionChanged">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
@@ -37,21 +37,19 @@
                FontSize="50" FontWeight="Bold"/>
             <Label x:Name="spieler1" Content="Spieler" HorizontalAlignment="Left" Margin="665,52,0,0" VerticalAlignment="Top" Height="77" Width="322"
                FontSize="50" FontWeight="Bold"/>
-            <TextBox x:Name="suchfeld" HorizontalAlignment="Left" Height="41" Margin="1040,102,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="262" FontSize="28"/>
-            <Label x:Name="label" Content="Suchfeld" HorizontalAlignment="Left" Margin="1106,47,0,0" VerticalAlignment="Top" Height="50" Width="164" FontSize="30" FontWeight="Bold"/>
-            <Label x:Name="label1" Content="Spielereigenschaften" HorizontalAlignment="Left" Margin="987,201,0,0" VerticalAlignment="Top" Height="59" Width="361" FontSize="35" FontWeight="Bold"/>
-            <Label x:Name="label2" Content="Name" HorizontalAlignment="Left" Margin="1132,265,0,0" VerticalAlignment="Top" Height="50" Width="89" FontSize="28" FontWeight="Bold"/>
-            <TextBox x:Name="textBox" Text="{Binding Path=name}" HorizontalAlignment="Left" Height="41" Margin="1040,315,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="262" FontSize="28">
+            
+            <Label x:Name="label1" Content="Spielereigenschaften" HorizontalAlignment="Left" Margin="987,129,0,0" VerticalAlignment="Top" Height="59" Width="361" FontSize="35" FontWeight="Bold"/>
+            <Label x:Name="label2" Content="Name" HorizontalAlignment="Left" Margin="1128,221,0,0" VerticalAlignment="Top" Height="50" Width="89" FontSize="28" FontWeight="Bold"/>
+            <TextBox x:Name="textBox" Text="{Binding Path=name}" HorizontalAlignment="Left" Height="41" Margin="1040,271,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="262" FontSize="28">
 
             </TextBox>
-            <Label x:Name="label3" Content="Verein" HorizontalAlignment="Left" Margin="1132,361,0,0" VerticalAlignment="Top" FontSize="28" FontWeight="Bold"/>
-            <TextBox x:Name="textBox1" Text="{Binding Path=verein}" HorizontalAlignment="Left" Height="41" Margin="1040,408,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="262" FontSize="28"/>
-            <Label x:Name="label4" Content="Trikot-Nummer" HorizontalAlignment="Left" Margin="1061,454,0,0" VerticalAlignment="Top" FontSize="28" FontWeight="Bold"/>
-            <TextBox x:Name="textBox2" Text="{Binding Path=nummer}" HorizontalAlignment="Left" Height="41" Margin="1040,501,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="262" FontSize="28"/>
-            <Label x:Name="label5" Content="Land" HorizontalAlignment="Left" Margin="1132,547,0,0" VerticalAlignment="Top" FontSize="28" FontWeight="Bold"/>
-            <TextBox x:Name="textBox3" Text="{Binding Path=land}" HorizontalAlignment="Left" Height="41" Margin="1040,594,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="262" FontSize="28"/>
-            <Button x:Name="button" Content="Speichern" HorizontalAlignment="Left" Margin="1061,640,0,0" VerticalAlignment="Top" Width="215" Height="60"  FontSize="28" FontWeight="Bold" Background="LightBlue"/>
-
+            <Label x:Name="label3" Content="Verein" HorizontalAlignment="Left" Margin="1128,328,0,0" VerticalAlignment="Top" FontSize="28" FontWeight="Bold"/>
+            <TextBox x:Name="textBox1" Text="{Binding Path=verein}" HorizontalAlignment="Left" Height="41" Margin="1040,375,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="262" FontSize="28"/>
+            <Label x:Name="label4" Content="Trikot-Nummer" HorizontalAlignment="Left" Margin="1067,440,0,0" VerticalAlignment="Top" FontSize="28" FontWeight="Bold"/>
+            <TextBox x:Name="textBox2" Text="{Binding Path=nummer}" HorizontalAlignment="Left" Height="41" Margin="1040,487,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="262" FontSize="28"/>
+            <Label x:Name="label5" Content="Land" HorizontalAlignment="Left" Margin="1132,542,0,0" VerticalAlignment="Top" FontSize="28" FontWeight="Bold"/>
+            <TextBox x:Name="textBox3" Text="{Binding Path=land}" HorizontalAlignment="Left" Height="41" Margin="1040,589,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="262" FontSize="28"/>
+            
         </Grid>
     </Grid>
 </UserControl>
